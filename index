@@ -1,388 +1,363 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Département des Sciences de Gestion — UMMTO | Espace Pédagogique</title>
-  <meta name="description" content="Espace pédagogique officiel du Département des Sciences de Gestion — Emplois du temps, EMD, ressources, contacts enseignants — UMMTO." />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #1e40af;       /* Bleu universitaire */
-      --primary-dark: #1e3a8a;
-      --accent: #0d9488;        /* Vert pour les actions */
-      --light: #f8fafc;
-      --gray-100: #f1f5f9;
-      --gray-200: #e2e8f0;
-      --gray-700: #334155;
-      --gray-900: #0f172a;
-      --border-radius: 10px;
-      --shadow: 0 4px 12px rgba(0,0,0,0.05);
-      --transition: all 0.3s ease;
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <title>Gestion des Spécialités — Web Version</title>
+  <style type="text/css">
+    body { font-family: Arial, sans-serif; margin:10px; color:#222; background:#fff; }
+    h2 { color:#1565C0; text-transform:uppercase; font-size:16px; text-align:center; margin-bottom:10px; }
+
+    .form-container { overflow:hidden; padding:8px 12px; }
+
+    .controls-row {
+      white-space: nowrap;
+      overflow: auto;
+      padding: 8px 0;
+      zoom: 1;
     }
 
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f9fbfd;
-      color: var(--gray-900);
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(135deg, var(--primary), #1d4ed8);
-      color: white;
-      padding: 1.2rem 2rem;
-      text-align: center;
-    }
-
-    .header-content h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-
-    .header-content p {
-      font-size: 1rem;
-      opacity: 0.9;
-      margin-top: 0.3rem;
-    }
-
-    nav {
-      background: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-    }
-
-    .nav-list {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.8rem;
-      padding: 0.7rem 1rem;
-    }
-
-    .nav-list a {
-      text-decoration: none;
-      color: var(--gray-700);
-      font-weight: 600;
-      padding: 0.5rem 1.2rem;
-      border-radius: var(--border-radius);
-      transition: var(--transition);
-    }
-
-    .nav-list a:hover, .nav-list a.active {
-      background: var(--primary);
-      color: white;
-    }
-
-    main {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
-    }
-
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin: 2rem 0 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 3px solid var(--accent);
+    .ctrl {
       display: inline-block;
+      *display: inline;
+      zoom: 1;
+      vertical-align: top;
+      margin-right: 12px;
+      box-sizing: border-box;
+      text-align: left;
     }
 
-    .hero {
-      background: white;
-      border-radius: var(--border-radius);
-      padding: 2rem;
-      text-align: center;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
+    .ctrl.select { width: 200px; }
+    .ctrl.medium { width: 180px; }
+    .ctrl.long   { width: 300px; }
+    .ctrl.short  { width: 90px; }
+
+    .ctrl-label {
+      display: block;
+      height: 18px;
+      line-height: 18px;
+      font-size: 12px;
+      color: #333;
+      margin: 0 0 6px 0;
     }
 
-    .hero h2 {
-      font-size: 2rem;
-      color: var(--primary-dark);
-      margin-bottom: 1rem;
+    select, input[type="text"] {
+      width: 100%;
+      padding:6px;
+      box-sizing: border-box;
+      height: 30px;
+      font-size:13px;
+      color: #000 !important;
+      background: #fff !important;
+      margin: 0;
+      vertical-align: top;
+    }
+    option { color:#000 !important; background:#fff !important; }
+
+    .buttons-row { text-align:center; margin-top:8px; padding-top:6px; clear: both; }
+    .buttons-row button {
+      display:inline-block;
+      margin: 0 8px;
+      padding:6px 12px;
+      background:#1565C0;
+      color:#fff;
+      border:none;
+      cursor:pointer;
+      height:32px;
+      line-height:16px;
     }
 
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 800px;
-      margin: 0 auto 1.5rem;
-    }
+    table { width:100%; border-collapse:collapse; margin-top:12px; font-size:13px; }
+    th, td { border:1px solid #B0BEC5; padding:8px; text-align:left; vertical-align:top; }
+    th { background:#1565C0; color:#fff; text-transform:uppercase; font-size:12px; }
+    tr:nth-child(even) { background:#F5F5F5; }
+    tr.selected { background:#D0E8FF !important; }
+    tr:hover { background:#EEF7FF; cursor:pointer; }
 
-    .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: white;
-      padding: 0.75rem 1.75rem;
-      border-radius: var(--border-radius);
-      text-decoration: none;
-      font-weight: 600;
-      transition: var(--transition);
-      margin: 0.5rem;
-    }
-
-    .btn:hover {
-      background: #059669;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(13,148,136,0.3);
-    }
-
-    .btn-blue { background: var(--primary); }
-    .btn-blue:hover { background: #1e3a8a; }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .card {
-      background: white;
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-
-    .card-header {
-      background: var(--primary);
-      color: white;
-      padding: 1rem 1.5rem;
-      font-weight: 600;
-      font-size: 1.15rem;
-    }
-
-    .card-body {
-      padding: 1.5rem;
-    }
-
-    .card-body ul {
-      padding-left: 1.5rem;
-      margin: 1rem 0;
-    }
-
-    .card-body li {
-      margin-bottom: 0.6rem;
-    }
-
-    .quick-links {
-      background: var(--gray-100);
-      padding: 1.5rem;
-      border-radius: var(--border-radius);
-      margin: 2rem 0;
-    }
-
-    .quick-links h3 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      color: var(--primary-dark);
-    }
-
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-
-    .link-item {
-      display: flex;
-      align-items: center;
-      padding: 0.8rem;
-      background: white;
-      border-radius: 8px;
-      text-decoration: none;
-      color: var(--gray-900);
-      transition: var(--transition);
-    }
-
-    .link-item:hover {
-      background: var(--primary);
-      color: white;
-    }
-
-    .link-item i {
-      margin-right: 0.8rem;
-      font-size: 1.2rem;
-      color: var(--primary);
-    }
-
-    .link-item:hover i {
-      color: white;
-    }
-
-    footer {
-      background: var(--gray-900);
-      color: #cbd5e1;
-      text-align: center;
-      padding: 1.8rem;
-      margin-top: 3rem;
-    }
-
-    @media (max-width: 768px) {
-      .hero h2 { font-size: 1.6rem; }
-      .section-title { font-size: 1.5rem; }
-      .nav-list { flex-direction: column; align-items: center; }
-      .btn { display: block; margin: 0.5rem auto; width: 90%; }
-    }
+    .msg { margin-top:8px; color:green; text-align:center; }
+    .err { margin-top:8px; color:red; text-align:center; }
+    .small { font-size:12px; color:#555; text-align:center; }
   </style>
 </head>
 <body>
+  <h2>Gestion des Spécialités</h2>
 
-  <header>
-    <div class="header-content">
-      <h1>Département des Sciences de Gestion</h1>
-      <p>Faculté des Sciences Économiques, Commerciales et des Sciences de Gestion — UMMTO</p>
+  <div class="form-container">
+    <div class="controls-row" id="controlsRow">
+      <div class="ctrl select" id="c-filiere">
+        <label class="ctrl-label" for="filiere">Filière</label>
+        <select id="filiere" title="Filière"></select>
+      </div>
+
+      <div class="ctrl short" id="c-niveau">
+        <label class="ctrl-label" for="niveau">Niveau</label>
+        <select id="niveau" title="Niveau">
+          <option value="">--Niveau--</option>
+          <option value="L1">L1</option>
+          <option value="L2">L2</option>
+          <option value="L3">L3</option>
+          <option value="Master">Master</option>
+        </select>
+      </div>
+
+      <div class="ctrl short" id="c-semestre">
+        <label class="ctrl-label" for="semestre">Semestre</label>
+        <select id="semestre" title="Semestre">
+          <option value="">--Sem--</option>
+          <option value="Pair">Pair</option>
+          <option value="Impair">Impair</option>
+        </select>
+      </div>
+
+      <div class="ctrl long" id="c-special">
+        <label class="ctrl-label" for="special">Spécialité</label>
+        <input id="special" type="text" placeholder="Spécialité" title="Spécialité" />
+      </div>
+
+      <div class="ctrl medium" id="c-abrevi">
+        <label class="ctrl-label" for="abrevi">Abréviation</label>
+        <input id="abrevi" type="text" placeholder="Abrév." title="Abréviation" />
+      </div>
+
+      <div class="ctrl short" id="c-nbremat">
+        <label class="ctrl-label" for="nbreMat">Nbre de Mat.</label>
+        <select id="nbreMat" title="Nbre de Mat."></select>
+      </div>
+
+      <div class="ctrl short" id="c-nbreGpes">
+        <label class="ctrl-label" for="nbreGpes">Nbre Gpes TD</label>
+        <select id="nbreGpes" title="Nbre Gpes TD"></select>
+      </div>
+
+      <div class="ctrl medium" id="c-arrete">
+        <label class="ctrl-label" for="arrete">Arrêté</label>
+        <input id="arrete" type="text" placeholder="Arrêté" title="Arrêté" />
+      </div>
     </div>
-  </header>
 
-  <nav>
-    <div class="nav-container">
-      <ul class="nav-list">
-        <li><a href="#accueil" class="active"><i class="fas fa-home"></i> Accueil</a></li>
-        <li><a href="#specialites"><i class="fas fa-graduation-cap"></i> Spécialités</a></li>
-        <li><a href="#reglementation"><i class="fas fa-gavel"></i> Réglementation</a></li>
-        <li><a href="#formulaires"><i class="fas fa-file-alt"></i> Formulaires</a></li>
-      </ul>
+    <div class="buttons-row" id="buttonsRow">
+      <button id="btnAdd">Ajouter</button>
+      <button id="btnUpdate">Mettre à jour</button>
+      <button id="btnDelete">Supprimer</button>
     </div>
-  </nav>
+  </div>
 
-  <main>
+  <div id="feedback" class="small"></div>
 
-    <section id="accueil">
-      <div class="hero">
-        <h2>Session EMD — Janvier 2026</h2>
-        <p>Consultez vos emplois du temps, lieux d’examens, et documents officiels. Espace réservé aux étudiants et enseignants du département.</p>
-        <a href="#specialites" class="btn"><i class="fas fa-calendar-check"></i> Voir les spécialités</a>
-        <a href="mailto:idir.mahtout@ummto.dz" class="btn btn-blue"><i class="fas fa-envelope"></i> Contacter le chef de département</a>
-      </div>
+  <table id="tbl" cellpadding="0" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Filière</th><th>Niveau</th><th>Semestre</th><th>Spécialité</th><th>Abréviation</th><th>Nbre Mat.</th><th>Nbre Gpes TD</th><th>Arrêté</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
 
-      <div class="quick-links">
-        <h3><i class="fas fa-bolt"></i> Liens rapides</h3>
-        <div class="links-grid">
-          <a href="#specialites" class="link-item"><i class="fas fa-graduation-cap"></i> Spécialités disponibles</a>
-          <a href="#formulaires" class="link-item"><i class="fas fa-file-pdf"></i> Modèles de formulaires</a>
-          <a href="#reglementation" class="link-item"><i class="fas fa-gavel"></i> Règles et régulations</a>
-          <a href="#" class="link-item"><i class="fas fa-bell"></i> Annonces officielles</a>
-        </div>
-      </div>
-    </section>
+<script type="text/javascript">
+function showMsg(text){ var d=document.getElementById('feedback'); d.className='msg'; d.innerText=text; setTimeout(function(){ if(d.className==='msg') d.innerText=''; },4000); }
+function showErr(text){ var d=document.getElementById('feedback'); d.className='err'; d.innerText=text; setTimeout(function(){ if(d.className==='err') d.innerText=''; },6000); }
 
-    <section id="specialites">
-      <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Spécialités</h2>
-      <div class="grid">
-        <div class="card">
-          <div class="card-header">Licence</div>
-          <div class="card-body">
-            <ul>
-              <li><a href="l2sg.html">L2 Sciences de Gestion</a></li>
-              <li><a href="l3mgt.html">L3 Management</a></li>
-              <li><a href="l3ent.html">L3 Entrepreneuriat</a></li>
-              <li><a href="l3mrh.html">L3 MRH</a></li>
-            </ul>
-            <a href="planning-licence.html" class="btn" style="background:#3b82f6"><i class="fas fa-download"></i> Télécharger (PDF global)</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header">Master 1</div>
-          <div class="card-body">
-            <ul>
-              <li><a href="m1gp.html">Gestion Publique</a></li>
-              <li><a href="m1mf.html">Management Financier</a></li>
-              <li><a href="m1mes.html">Management des Établissements de Santé</a></li>
-              <li><a href="m1ms.html">Management Stratégique</a></li>
-              <li><a href="m1mrh.html">MRH</a></li>
-            </ul>
-            <a href="planning-m1.html" class="btn" style="background:#3b82f6"><i class="fas fa-download"></i> Télécharger M1</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header">Master 2</div>
-          <div class="card-body">
-            <ul>
-              <li><a href="m2gp.html">Gestion Publique</a></li>
-              <li><a href="m2mf.html">Management Financier</a></li>
-              <li><a href="m2mes.html">Management des Établissements de Santé</a></li>
-              <li><a href="m2ms.html">Management Stratégique</a></li>
-              <li><a href="m2mrh.html">MRH</a></li>
-            </ul>
-            <a href="planning-m2.html" class="btn" style="background:#3b82f6"><i class="fas fa-download"></i> Télécharger M2</a>
-          </div>
-        </div>
-      </div>
-    </section>
+function sanitizeField(s){ if (!s) return ""; return String(s).replace(/;/g,",").replace(/^\s+|\s+$/g,""); }
 
-    <section id="reglementation">
-      <h2 class="section-title"><i class="fas fa-gavel"></i> Réglementation</h2>
-      <div class="card">
-        <div class="card-header">Règles et procédures</div>
-        <div class="card-body">
-          <p>Consultez les règles relatives aux examens, inscriptions et procédures pédagogiques.</p>
-          <ul>
-            <li>❌ Problème d’emploi du temps ? → Vérifiez les listes affichées au département (Bloc A/B).</li>
-            <li>❌ Conflit d’horaire ? → Contactez votre coordinatrice dans les 48h.</li>
-            <li>❌ Absence justifiée ? → Déposez un justificatif (médical, administratif) au secrétariat pédagogique.</li>
-            <li>🔹 Respect des horaires d'examens et des règles de conduite.</li>
-            <li>🔹 Procédures d'inscription aux spécialités et modules.</li>
-          </ul>
-          <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Voir le règlement complet</a>
-        </div>
-      </div>
-    </section>
+function setOptionColors(opt){
+  try{ if (opt && opt.style){ opt.style.color = "#000"; opt.style.background = "#fff"; } }catch(e){}
+}
 
-    <section id="formulaires">
-      <h2 class="section-title"><i class="fas fa-file-alt"></i> Formulaires</h2>
-      <div class="grid">
-        <div class="card">
-          <div class="card-header"><i class="fas fa-file-pdf"></i> Documents administratifs</div>
-          <div class="card-body">
-            <ul>
-              <li>Fiches d’inscription aux EMD</li>
-              <li>Modèles de PV de jury</li>
-              <li>Attestations (abandon, réussite, etc.)</li>
-            </ul>
-            <a href="#" class="btn"><i class="fas fa-download"></i> Télécharger les formulaires</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header"><i class="fas fa-laptop"></i> Supports pédagogiques</div>
-          <div class="card-body">
-            <p>Cours, supports, et projets liés aux modules pédagogiques.</p>
-            <p>➡️ Plateforme Moodle / Google Drive (accès enseignant)</p>
-            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Accéder aux ressources</a>
-          </div>
-        </div>
-      </div>
-    </section>
+function populateNumberSelect(id, min, max, placeholder){
+  var sel = document.getElementById(id);
+  if (!sel) return;
+  while (sel.options.length > 0) sel.remove(0);
+  var opt0 = document.createElement('option'); opt0.value = ""; opt0.text = placeholder || "--";
+  setOptionColors(opt0); sel.add(opt0);
+  for (var n = min; n <= max; n++){
+    var o = document.createElement('option'); o.value = String(n);
+    try { o.text = String(n); } catch(e) { o.innerText = String(n); }
+    setOptionColors(o);
+    sel.add(o);
+  }
+  try { sel.style.color = "#000"; sel.style.background = "#fff"; } catch(e){}
+}
 
-  </main>
+function loadFiliereListToSelect() {
+  var filiereList = JSON.parse(localStorage.getItem('filiereData') || '[]');
+  var sel = document.getElementById('filiere');
+  if (!sel) return;
+  var cur = sel.value || "";
+  while (sel.options.length>0) sel.remove(0);
+  var opt0 = document.createElement('option'); opt0.value=""; opt0.text="-- Filière --"; setOptionColors(opt0); sel.add(opt0);
+  for (var m=0;m<filiereList.length;m++){
+    var o = document.createElement('option'); o.value = filiereList[m].filiere;
+    try { o.text = filiereList[m].filiere; } catch(e) { o.innerText = filiereList[m].filiere; }
+    if (filiereList[m].abrevi) o.setAttribute('data-abrevi', filiereList[m].abrevi);
+    setOptionColors(o); sel.add(o);
+  }
+  try { sel.style.color = "#000"; sel.style.background = "#fff"; if (cur) sel.value = cur; } catch(e) {}
+}
 
-  <footer>
-    <p>&copy; 2025 — Département des Sciences de Gestion — UMMTO</p>
-    <p><small>Ce site est mis à jour régulièrement. Dernière mise à jour : 11 décembre 2025</small></p>
-  </footer>
+function onFiliereChange() {
+  var sel = document.getElementById('filiere');
+  if (!sel) return;
+  var idx = sel.selectedIndex; if (idx < 0) return;
+  var a = sel.options[idx].getAttribute('data-abrevi') || "";
+  try { document.getElementById('abrevi').value = a; } catch(e) {}
+}
 
-</body>
-</html>
+function addRowToTable(filiere, niveau, semestre, special, abrevi, nbreMat, nbreGpes, arrete, index){
+  var tbody = document.getElementById('tbl').getElementsByTagName('tbody')[0];
+  var tr = document.createElement('tr');
+  var td1=document.createElement('td'); td1.innerText=filiere;
+  var td2=document.createElement('td'); td2.innerText=niveau;
+  var td3=document.createElement('td'); td3.innerText=semestre;
+  var td4=document.createElement('td'); td4.innerText=special;
+  var td5=document.createElement('td'); td5.innerText=abrevi;
+  var td6=document.createElement('td'); td6.innerText=nbreMat;
+  var td7=document.createElement('td'); td7.innerText=nbreGpes;
+  var td8=document.createElement('td'); td8.innerText=arrete;
+  tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); tr.appendChild(td4); tr.appendChild(td5); tr.appendChild(td6); tr.appendChild(td7); tr.appendChild(td8);
+  if (index !== undefined) { try { tr.setAttribute('data-index', String(index)); } catch(e) {} }
+
+  tr.onclick = function(){
+    var sel = document.getElementById('filiere');
+    var matched=false;
+    for (var i=0;i<sel.options.length;i++){ if (sel.options[i].value === filiere) { sel.selectedIndex = i; matched=true; break; } }
+    if (!matched){ var tmp=document.createElement('option'); tmp.value=filiere; try{tmp.text=filiere;}catch(e){tmp.innerText=filiere;} if (abrevi) tmp.setAttribute('data-abrevi',abrevi); setOptionColors(tmp); sel.add(tmp); sel.selectedIndex = sel.options.length-1; }
+    try{ document.getElementById('abrevi').value = abrevi; }catch(e){}
+    try{ document.getElementById('niveau').value = niveau; }catch(e){}
+    try{ document.getElementById('semestre').value = semestre; }catch(e){}
+    try{ document.getElementById('special').value = special; }catch(e){}
+    try{ document.getElementById('nbreMat').value = nbreMat; }catch(e){}
+    try{ document.getElementById('nbreGpes').value = nbreGpes; }catch(e){}
+    try{ document.getElementById('arrete').value = arrete; }catch(e){}
+    var rows = document.getElementById('tbl').getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+    for (var r=0;r<rows.length;r++){ if (rows[r]===tr) rows[r].className='selected'; else if (rows[r].className==='selected') rows[r].className=''; }
+  };
+
+  tbody.appendChild(tr);
+}
+
+function loadSpecialiteData(){
+  var tbody = document.getElementById('tbl').getElementsByTagName('tbody')[0];
+  while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
+  var data = JSON.parse(localStorage.getItem('specialiteData') || '[]');
+  for (var i=0; i<data.length; i++){
+    var item = data[i];
+    addRowToTable(item.filiere, item.niveau, item.semestre, item.specialite, item.abrevi, item.nbreMat, item.nbreGpes, item.arrete, i);
+  }
+}
+
+function saveSpecialiteData(data){
+  localStorage.setItem('specialiteData', JSON.stringify(data));
+}
+
+function getSelectedRowAndIndex(){
+  var tbody = document.getElementById('tbl').getElementsByTagName('tbody')[0];
+  var rows = tbody.getElementsByTagName('tr');
+  for (var i=0;i<rows.length;i++){
+    if (rows[i].className === 'selected') {
+      var idx = rows[i].getAttribute('data-index');
+      return { tr: rows[i], index: idx ? parseInt(idx, 10) : null };
+    }
+  }
+  return { tr: null, index: null };
+}
+
+function validNotEmpty(s){ return (s!==null && s!==undefined && String(s).replace(/^\s+|\s+$/g,'').length>0); }
+
+window.onload = function(){
+  populateNumberSelect('nbreMat', 1, 40, '-- Nbre Mat --');
+  populateNumberSelect('nbreGpes', 1, 300, '-- Nbre Gpes --');
+
+  loadFiliereListToSelect();
+  loadSpecialiteData();
+
+  var selF = document.getElementById('filiere');
+  if (selF) {
+    if (selF.attachEvent) selF.attachEvent('onchange', onFiliereChange);
+    else selF.onchange = onFiliereChange;
+  }
+
+  function centerButtons() {
+    try {
+      var controlsRow = document.getElementById('controlsRow');
+      var buttonsRow = document.getElementById('buttonsRow');
+      if (!controlsRow || !buttonsRow) return;
+      var crRect = controlsRow.getBoundingClientRect ? controlsRow.getBoundingClientRect() : null;
+      var contRect = (document.querySelector('.form-container') || document.body).getBoundingClientRect ? (document.querySelector('.form-container') || document.body).getBoundingClientRect() : null;
+      var left = 0, width = controlsRow.offsetWidth || 0;
+      if (crRect && contRect) left = crRect.left - contRect.left;
+      var buttons = buttonsRow.getElementsByTagName('button');
+      var total = 0;
+      for (var i=0;i<buttons.length;i++){ total += buttons[i].offsetWidth || 0; if (i>0) total += 16; }
+      var paddingLeft = Math.round(left + (width - total)/2);
+      if (paddingLeft < 0) paddingLeft = 0;
+      buttonsRow.style.paddingLeft = paddingLeft + 'px';
+    } catch (e) {}
+  }
+  setTimeout(centerButtons, 120);
+  if (window.attachEvent) window.attachEvent('onresize', centerButtons); else window.onresize = centerButtons;
+
+  document.getElementById('btnAdd').onclick = function() {
+    var sel = document.getElementById('filiere');
+    var filiere = sanitizeField(sel ? sel.value : "");
+    var niveau  = sanitizeField(document.getElementById('niveau').value || "");
+    var semestre= sanitizeField(document.getElementById('semestre').value || "");
+    var special = sanitizeField(document.getElementById('special').value || "");
+    var ab = "";
+    try { if (sel && sel.selectedIndex >= 0) ab = sel.options[sel.selectedIndex].getAttribute('data-abrevi') || ""; } catch(e) {}
+    var abrevi  = sanitizeField(document.getElementById('abrevi').value || ab || "");
+    var nbreMat = sanitizeField(document.getElementById('nbreMat').value || "");
+    var nbreGpes= sanitizeField(document.getElementById('nbreGpes').value || "");
+    var arrete  = sanitizeField(document.getElementById('arrete').value || "");
+    if (!validNotEmpty(filiere)) { showErr("Le champ Filière est requis."); return; }
+    if (!validNotEmpty(special))  { showErr("Le champ Spécialité est requis."); return; }
+    var data = JSON.parse(localStorage.getItem('specialiteData') || '[]');
+    data.push({filiere:filiere, niveau:niveau, semestre:semestre, specialite:special, abrevi:abrevi, nbreMat:nbreMat, nbreGpes:nbreGpes, arrete:arrete});
+    saveSpecialiteData(data);
+    loadSpecialiteData();
+    try { document.getElementById('filiere').selectedIndex = 0; } catch(e) {}
+    try { document.getElementById('niveau').selectedIndex = 0; } catch(e) {}
+    try { document.getElementById('semestre').selectedIndex = 0; } catch(e) {}
+    try { document.getElementById('special').value = ""; } catch(e) {}
+    try { document.getElementById('abrevi').value = ""; } catch(e) {}
+    try { document.getElementById('nbreMat').selectedIndex = 0; } catch(e) {}
+    try { document.getElementById('nbreGpes').selectedIndex = 0; } catch(e) {}
+    try { document.getElementById('arrete').value = ""; } catch(e) {}
+    showMsg("Ajouté et enregistré.");
+    setTimeout(centerButtons, 80);
+  };
+
+  document.getElementById('btnUpdate').onclick = function() {
+    var selRow = getSelectedRowAndIndex();
+    if (!selRow.tr || selRow.index === null) { showErr("Sélectionnez d'abord une ligne à mettre à jour."); return; }
+    var sel = document.getElementById('filiere');
+    var filiere = sanitizeField(sel ? sel.value : "");
+    var niveau  = sanitizeField(document.getElementById('niveau').value || "");
+    var semestre= sanitizeField(document.getElementById('semestre').value || "");
+    var special = sanitizeField(document.getElementById('special').value || "");
+    var ab = "";
+    try { if (sel && sel.selectedIndex>=0) ab = sel.options[sel.selectedIndex].getAttribute('data-abrevi') || ""; } catch(e) {}
+    var abrevi  = sanitizeField(document.getElementById('abrevi').value || ab || "");
+    var nbreMat = sanitizeField(document.getElementById('nbreMat').value || "");
+    var nbreGpes= sanitizeField(document.getElementById('nbreGpes').value || "");
+    var arrete  = sanitizeField(document.getElementById('arrete').value || "");
+    if (!validNotEmpty(filiere)) { showErr("Le champ Filière est requis."); return; }
+    if (!validNotEmpty(special))  { showErr("Le champ Spécialité est requis."); return; }
+    var data = JSON.parse(localStorage.getItem('specialiteData') || '[]');
+    data[selRow.index] = {filiere:filiere, niveau:niveau, semestre:semestre, specialite:special, abrevi:abrevi, nbreMat:nbreMat, nbreGpes:nbreGpes, arrete:arrete};
+    saveSpecialiteData(data);
+    loadSpecialiteData();
+    showMsg("Ligne mise à jour.");
+    setTimeout(centerButtons, 80);
+  };
+
+  document.getElementById('btnDelete').onclick = function() {
+    var selRow = getSelectedRowAndIndex();
+    if (!selRow.tr || selRow.index === null) { showErr("Sélectionnez d'abord une ligne à supprimer."); return; }
+    if (!confirm("Confirmer la suppression de la ligne sélectionnée ?")) return;
+    var data = JSON.parse(localStorage.getItem('specialiteData') || '[]');
+    data.splice(selRow.index, 1);
+    saveSpecialiteData(data);
+    loadSpecialiteData();
+    try { document.getElementById('filiere').selectedIndex = 0; } catch(e) {}
+    try { document.getElementById('niveau').selectedIndex = 0; } catch(e) {}
+    try {*
