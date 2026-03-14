@@ -1,0 +1,7 @@
+Domaine;Filiere;Abreviation;Arrete
+
+SECG;Sciences de gestion;DSG;--
+SECG;Sciences Economiques;DSE;--
+SECG;Sciences Financières et Comptabilité;DSFC;--
+SECG;Sciences Commerciales;DSC;--
+SECG;Sciences de gestion;DSG;--

@@ -1,0 +1,12 @@
+Filiere;Niveau;Specialite;Abreviation;Arrete
+
+Sciences de gestion;L1;Pair;TC;L1-TC-S2;--;8;10
+Sciences de gestion;L2;Pair;Deuxième année Licence en Sciences de gestion;L2-SG-S4;--
+Sciences de gestion;L3;Pair;Troisième année Licence spécialité Management;L3-MGT-S6;--
+Sciences de gestion;L3;Pair;Troisième année Licence spécialité Management des Ressources Humaines;L3-MRH-S6;--
+Sciences de gestion;L3;Pair;Troisième année Licence spécialité Entreprenariat;L3-ENT-S6;--
+Sciences de gestion;Master;Pair;Master 1 en Management stratégique;M1-MS-S2;--
+Sciences de gestion;Master;Pair;Master 1 en Management des Ressources Humaines;M1-MRH-S2;--
+Sciences de gestion;Master;Pair;Master 1 en Management Public;M1-MP-S2;--
+Sciences de gestion;Master;Pair;Master 1 en Management des Etablissements de Santé;M1-MES-S2;--
+Sciences de gestion;Master;Pair;Master 1 en Management Financier;M1-MF-S2;--
