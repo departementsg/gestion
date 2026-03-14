@@ -1,1 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L2 Sciences de Gestion — UMMTO | Espace Pédagogique</title>
+  <meta name="description" content="Page dédiée à la spécialité L2 Sciences de Gestion — Emplois du temps, modules, contacts — UMMTO." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e40af;       /* Bleu universitaire */
+      --primary-dark: #1e3a8a;
+      --accent: #0d9488;        /* Vert pour les actions */
+      --light: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-700: #334155;
+      --gray-900: #0f172a;
+      --border-radius: 10px;
+      --shadow: 0 4px 12px rgba(0,0,0,0.05);
+      --transition: all 0.3s ease;
+    }
 
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fbfd;
+      color: var(--gray-900);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), #1d4ed8);
+      color: white;
+      padding: 1.2rem 2rem;
+      text-align: center;
+    }
+
+    .header-content h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .header-content p {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-top: 0.3rem;
+    }
+
+    nav {
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      padding: 0.7rem 1rem;
+    }
+
+    .nav-list a {
+      text-decoration: none;
+      color: var(--gray-700);
+      font-weight: 600;
+      padding: 0.5rem 1.2rem;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+    }
+
+    .nav-list a:hover, .nav-list a.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 2rem 0 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--accent);
+      display: inline-block;
+    }
+
+    .hero {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      margin: 0.5rem;
+    }
+
+    .btn:hover {
+      background: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(13,148,136,0.3);
+    }
+
+    .btn-blue { background: var(--primary); }
+    .btn-blue:hover { background: #1e3a8a; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .card-header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 1.5rem;
+      font-weight: 600;
+      font-size: 1.15rem;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .card-body ul {
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .card-body li {
+      margin-bottom: 0.6rem;
+    }
+
+    .quick-links {
+      background: var(--gray-100);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      margin: 2rem 0;
+    }
+
+    .quick-links h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      padding: 0.8rem;
+      background: white;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--gray-900);
+      transition: var(--transition);
+    }
+
+    .link-item:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .link-item i {
+      margin-right: 0.8rem;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    .link-item:hover i {
+      color: white;
+    }
+
+    footer {
+      background: var(--gray-900);
+      color: #cbd5e1;
+      text-align: center;
+      padding: 1.8rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 { font-size: 1.6rem; }
+      .section-title { font-size: 1.5rem; }
+      .nav-list { flex-direction: column; align-items: center; }
+      .btn { display: block; margin: 0.5rem auto; width: 90%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <h1>L2 Sciences de Gestion</h1>
+      <p>Département des Sciences de Gestion — UMMTO</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-container">
+      <ul class="nav-list">
+        <li><a href="index.html"><i class="fas fa-home"></i> Accueil général</a></li>
+        <li><a href="#presentation" class="active"><i class="fas fa-info-circle"></i> Présentation</a></li>
+        <li><a href="#modules"><i class="fas fa-book"></i> Modules</a></li>
+        <li><a href="#planning"><i class="fas fa-calendar-alt"></i> Planning EMD</a></li>
+        <li><a href="#contacts"><i class="fas fa-users"></i> Contacts</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <section id="presentation">
+      <div class="hero">
+        <h2>Présentation de L2 Sciences de Gestion</h2>
+        <p>La Licence 2 en Sciences de Gestion offre une formation de base solide en gestion d'entreprise, économie et droit, préparant les étudiants à des parcours en Licence 3.</p>
+        <a href="#modules" class="btn"><i class="fas fa-book-open"></i> Voir les modules</a>
+        <a href="#planning" class="btn btn-blue"><i class="fas fa-calendar-check"></i> Voir le planning</a>
+      </div>
+    </section>
+
+    <section id="modules">
+      <h2 class="section-title"><i class="fas fa-book"></i> Modules de L2 Sciences de Gestion</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-header">Modules fondamentaux</div>
+          <div class="card-body">
+            <ul>
+              <li>Économie générale</li>
+              <li>Comptabilité générale</li>
+              <li>Droit des affaires</li>
+              <li>Mathématiques appliquées</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Modules spécialisés</div>
+          <div class="card-body">
+            <ul>
+              <li>Marketing de base</li>
+              <li>Gestion des ressources humaines</li>
+              <li>Finance d'entreprise</li>
+              <li>Statistiques appliquées</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Langues et outils</div>
+          <div class="card-body">
+            <ul>
+              <li>Anglais des affaires</li>
+              <li>Informatique de gestion (Excel, etc.)</li>
+              <li>Communication</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="planning">
+      <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Planning des EMD — L2 Sciences de Gestion</h2>
+      <div class="card">
+        <div class="card-header">Emploi du temps EMD Janvier 2026</div>
+        <div class="card-body">
+          <p>Les examens se déroulent du 15 au 25 janvier 2026. Lieux : Amphithéâtre A et salles de cours Bloc B.</p>
+          <ul>
+            <li><strong>Lundi 15/01 :</strong> Économie générale (9h-12h) — Salle A1</li>
+            <li><strong>Mardi 16/01 :</strong> Comptabilité générale (14h-17h) — Salle B2</li>
+            <li><strong>Mercredi 17/01 :</strong> Droit des affaires (9h-12h) — Amphithéâtre A</li>
+            <li><strong>Jeudi 18/01 :</strong> Marketing (14h-17h) — Salle A2</li>
+            <li><strong>Vendredi 19/01 :</strong> Finance (9h-12h) — Salle B1</li>
+          </ul>
+          <a href="#" class="btn"><i class="fas fa-download"></i> Télécharger le planning complet (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts">
+      <h2 class="section-title"><i class="fas fa-users"></i> Contacts pédagogiques — L2 Sciences de Gestion</h2>
+      <div class="card">
+        <div class="card-header">Responsables et enseignants</div>
+        <div class="card-body">
+          <p><strong>Coordinatrice L2 :</strong> Dr. Fatima Zohra<br>
+          📧 <a href="mailto:fatima.zohra@ummto.dz">fatima.zohra@ummto.dz</a></p>
+          <p><strong>Enseignant Économie :</strong> Pr. Ahmed Bennani<br>
+          📧 <a href="mailto:ahmed.bennani@ummto.dz">ahmed.bennani@ummto.dz</a></p>
+          <p><strong>Enseignant Comptabilité :</strong> Mme. Leila Bouazza<br>
+          📧 <a href="mailto:leila.bouazza@ummto.dz">leila.bouazza@ummto.dz</a></p>
+          <p><strong>Service scolarité :</strong> Bloc A, rez-de-chaussée — horaires : 8h30–12h30 / 13h30–16h00</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 — Département des Sciences de Gestion — UMMTO</p>
+    <p><small>Ce site est mis à jour régulièrement. Dernière mise à jour : 11 décembre 2025</small></p>
+  </footer>
+
+</body>
+</html>
