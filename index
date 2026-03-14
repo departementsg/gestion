@@ -297,10 +297,10 @@
           <div class="card-header">Licence</div>
           <div class="card-body">
             <ul>
-              <li>L2 Sciences de Gestion</li>
-              <li>L3 Management</li>
-              <li>L3 Entrepreneuriat</li>
-              <li>L3 MRH</li>
+              <li><a href="l2sg.html">L2 Sciences de Gestion</a></li>
+              <li><a href="l3mgt.html">L3 Management</a></li>
+              <li><a href="l3ent.html">L3 Entrepreneuriat</a></li>
+              <li><a href="l3mrh.html">L3 MRH</a></li>
             </ul>
             <a href="planning-licence.html" class="btn" style="background:#3b82f6"><i class="fas fa-download"></i> Télécharger (PDF global)</a>
           </div>
@@ -309,11 +309,11 @@
           <div class="card-header">Master 1</div>
           <div class="card-body">
             <ul>
-              <li>Gestion Publique</li>
-              <li>Management Financier</li>
-              <li>Management des Établissements de Santé</li>
-              <li>Management Stratégique</li>
-              <li>MRH</li>
+              <li><a href="m1gp.html">Gestion Publique</a></li>
+              <li><a href="m1mf.html">Management Financier</a></li>
+              <li><a href="m1mes.html">Management des Établissements de Santé</a></li>
+              <li><a href="m1ms.html">Management Stratégique</a></li>
+              <li><a href="m1mrh.html">MRH</a></li>
             </ul>
             <a href="planning-m1.html" class="btn" style="background:#3b82f6"><i class="fas fa-download"></i> Télécharger M1</a>
           </div>
@@ -322,11 +322,11 @@
           <div class="card-header">Master 2</div>
           <div class="card-body">
             <ul>
-              <li>Gestion Publique</li>
-              <li>Management Financier</li>
-              <li>Management des Établissements de Santé</li>
-              <li>Management Stratégique</li>
-              <li>MRH</li>
+              <li><a href="m2gp.html">Gestion Publique</a></li>
+              <li><a href="m2mf.html">Management Financier</a></li>
+              <li><a href="m2mes.html">Management des Établissements de Santé</a></li>
+              <li><a href="m2ms.html">Management Stratégique</a></li>
+              <li><a href="m2mrh.html">MRH</a></li>
             </ul>
             <a href="planning-m2.html" class="btn" style="background:#3b82f6"><i class="fas fa-download"></i> Télécharger M2</a>
           </div>
