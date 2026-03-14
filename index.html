@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Département des Sciences de Gestion — UMMTO | Espace Pédagogique</title>
+  <meta name="description" content="Espace pédagogique officiel du Département des Sciences de Gestion — Emplois du temps, EMD, ressources, contacts enseignants — UMMTO." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e40af;       /* Bleu universitaire */
+      --primary-dark: #1e3a8a;
+      --accent: #0d9488;        /* Vert pour les actions */
+      --light: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-700: #334155;
+      --gray-900: #0f172a;
+      --border-radius: 10px;
+      --shadow: 0 4px 12px rgba(0,0,0,0.05);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fbfd;
+      color: var(--gray-900);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), #1d4ed8);
+      color: white;
+      padding: 1.2rem 2rem;
+      text-align: center;
+    }
+
+    .header-content h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .header-content p {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-top: 0.3rem;
+    }
+
+    nav {
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      padding: 0.7rem 1rem;
+    }
+
+    .nav-list a {
+      text-decoration: none;
+      color: var(--gray-700);
+      font-weight: 600;
+      padding: 0.5rem 1.2rem;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+    }
+
+    .nav-list a:hover, .nav-list a.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 2rem 0 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid var(--accent);
+      display: inline-block;
+    }
+
+    .hero {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      margin: 0.5rem;
+    }
+
+    .btn:hover {
+      background: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(13,148,136,0.3);
+    }
+
+    .btn-blue { background: var(--primary); }
+    .btn-blue:hover { background: #1e3a8a; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .card-header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem 1.5rem;
+      font-weight: 600;
+      font-size: 1.15rem;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .card-body ul {
+      padding-left: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .card-body li {
+      margin-bottom: 0.6rem;
+    }
+
+    .quick-links {
+      background: var(--gray-100);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      margin: 2rem 0;
+    }
+
+    .quick-links h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      padding: 0.8rem;
+      background: white;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--gray-900);
+      transition: var(--transition);
+    }
+
+    .link-item:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .link-item i {
+      margin-right: 0.8rem;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    .link-item:hover i {
+      color: white;
+    }
+
+    footer {
+      background: var(--gray-900);
+      color: #cbd5e1;
+      text-align: center;
+      padding: 1.8rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 { font-size: 1.6rem; }
+      .section-title { font-size: 1.5rem; }
+      .nav-list { flex-direction: column; align-items: center; }
+      .btn { display: block; margin: 0.5rem auto; width: 90%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <h1>Département des Sciences de Gestion</h1>
+      <p>Faculté des Sciences Économiques, Commerciales et des Sciences de Gestion — UMMTO</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-container">
+      <ul class="nav-list">
+        <li><a href="#accueil" class="active"><i class="fas fa-home"></i> Accueil</a></li>
+        <li><a href="#plannings"><i class="fas fa-calendar-alt"></i> Plannings EMD</a></li>
+        <li><a href="#ressources"><i class="fas fa-book"></i> Ressources</a></li>
+        <li><a href="#contacts"><i class="fas fa-users"></i> Contacts pédagogiques</a></li>
+        <li><a href="#aide"><i class="fas fa-question-circle"></i> Aide</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <section id="accueil">
+      <div class="hero">
+        <h2>Session EMD — Janvier 2026</h2>
+        <p>Consultez vos emplois du temps, lieux d’examens, et documents officiels. Espace réservé aux étudiants et enseignants du département.</p>
+        <a href="#plannings" class="btn"><i class="fas fa-calendar-check"></i> Voir les plannings</a>
+        <a href="mailto:idir.mahtout@ummto.dz" class="btn btn-blue"><i class="fas fa-envelope"></i> Contacter le chef de département</a>
+      </div>
+
+      <div class="quick-links">
+        <h3><i class="fas fa-bolt"></i> Liens rapides</h3>
+        <div class="links-grid">
+          <a href="#plannings" class="link-item"><i class="fas fa-table"></i> Emplois du temps EMD</a>
+          <a href="#" class="link-item"><i class="fas fa-file-pdf"></i> Modèles de PV & attestations</a>
+          <a href="#" class="link-item"><i class="fas fa-chalkboard-teacher"></i> Coordinatrices pédagogiques</a>
+          <a href="#" class="link-item"><i class="fas fa-bell"></i> Annonces officielles</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="plannings">
+      <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Plannings des EMD — Janvier 2026</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-header">Licence</div>
+          <div class="card-body">
+            <ul>
+              <li><a href="#L2" style="color:var(--primary); font-weight:500;">L2 Sciences de Gestion</a></li>
+              <li><a href="#L3MGT" style="color:var(--primary); font-weight:500;">L3 Management</a></li>
+              <li><a href="#L3ENT" style="color:var(--primary); font-weight:500;">L3 Entrepreneuriat</a></li>
+              <li><a href="#L3MRH" style="color:var(--primary); font-weight:500;">L3 MRH</a></li>
+            </ul>
+            <a href="planning-licence.html" class="btn" style="background:#3b82f6"><i class="fas fa-download"></i> Télécharger (PDF global)</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Master 1</div>
+          <div class="card-body">
+            <ul>
+              <li>Gestion Publique</li>
+              <li>Management Financier</li>
+              <li>Management des Établissements de Santé</li>
+              <li>Management Stratégique</li>
+              <li>MRH</li>
+            </ul>
+            <a href="planning-m1.html" class="btn" style="background:#3b82f6"><i class="fas fa-download"></i> Télécharger M1</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Master 2</div>
+          <div class="card-body">
+            <ul>
+              <li>Gestion Publique</li>
+              <li>Management Financier</li>
+              <li>Management des Établissements de Santé</li>
+              <li>Management Stratégique</li>
+              <li>MRH</li>
+            </ul>
+            <a href="planning-m2.html" class="btn" style="background:#3b82f6"><i class="fas fa-download"></i> Télécharger M2</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ressources">
+      <h2 class="section-title"><i class="fas fa-book"></i> Ressources pédagogiques</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-header"><i class="fas fa-file-alt"></i> Documents administratifs</div>
+          <div class="card-body">
+            <ul>
+              <li>Fiches d’inscription aux EMD</li>
+              <li>Modèles de PV de jury</li>
+              <li>Attestations (abandon, réussite, etc.)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header"><i class="fas fa-laptop"></i> E-Management</div>
+          <div class="card-body">
+            <p>Cours, supports, et projets liés au module <strong>E-Management</strong> (L3, M1).</p>
+            <p>➡️ Plateforme Moodle / Google Drive (accès enseignant)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts">
+      <h2 class="section-title"><i class="fas fa-users"></i> Contacts pédagogiques</h2>
+      <div class="card">
+        <div class="card-header">Coordination et encadrement</div>
+        <div class="card-body">
+          <p><strong>Responsable du département :</strong> Pr. Idir MAHTOUT<br>
+          📧 <a href="mailto:idir.mahtout@ummto.dz">idir.mahtout@ummto.dz</a></p>
+          <p><strong>Coordinatrices pédagogiques (Licence/Master) :</strong> à compléter — liste affichée au département</p>
+          <p><strong>Service scolarité :</strong> Bloc A, rez-de-chaussée — horaires : 8h30–12h30 / 13h30–16h00</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="aide">
+      <h2 class="section-title"><i class="fas fa-question-circle"></i> Besoin d’aide ?</h2>
+      <div class="card">
+        <div class="card-body">
+          <p>❌ Problème d’emploi du temps ? → Vérifiez les listes affichées au département (Bloc A/B).</p>
+          <p>❌ Conflit d’horaire ? → Contactez votre coordinatrice dans les 48h.</p>
+          <p>❌ Absence justifiée ? → Déposez un justificatif (médical, administratif) au secrétariat pédagogique.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 — Département des Sciences de Gestion — UMMTO</p>
+    <p><small>Ce site est mis à jour régulièrement. Dernière mise à jour : 11 décembre 2025</small></p>
+  </footer>
+
+</body>
+</html>
