@@ -262,10 +262,9 @@
     <div class="nav-container">
       <ul class="nav-list">
         <li><a href="#accueil" class="active"><i class="fas fa-home"></i> Accueil</a></li>
-        <li><a href="#plannings"><i class="fas fa-calendar-alt"></i> Plannings EMD</a></li>
-        <li><a href="#ressources"><i class="fas fa-book"></i> Ressources</a></li>
-        <li><a href="#contacts"><i class="fas fa-users"></i> Contacts pédagogiques</a></li>
-        <li><a href="#aide"><i class="fas fa-question-circle"></i> Aide</a></li>
+        <li><a href="#specialites"><i class="fas fa-graduation-cap"></i> Spécialités</a></li>
+        <li><a href="#reglementation"><i class="fas fa-gavel"></i> Réglementation</a></li>
+        <li><a href="#formulaires"><i class="fas fa-file-alt"></i> Formulaires</a></li>
       </ul>
     </div>
   </nav>
@@ -276,32 +275,32 @@
       <div class="hero">
         <h2>Session EMD — Janvier 2026</h2>
         <p>Consultez vos emplois du temps, lieux d’examens, et documents officiels. Espace réservé aux étudiants et enseignants du département.</p>
-        <a href="#plannings" class="btn"><i class="fas fa-calendar-check"></i> Voir les plannings</a>
+        <a href="#specialites" class="btn"><i class="fas fa-calendar-check"></i> Voir les spécialités</a>
         <a href="mailto:idir.mahtout@ummto.dz" class="btn btn-blue"><i class="fas fa-envelope"></i> Contacter le chef de département</a>
       </div>
 
       <div class="quick-links">
         <h3><i class="fas fa-bolt"></i> Liens rapides</h3>
         <div class="links-grid">
-          <a href="#plannings" class="link-item"><i class="fas fa-table"></i> Emplois du temps EMD</a>
-          <a href="#" class="link-item"><i class="fas fa-file-pdf"></i> Modèles de PV & attestations</a>
-          <a href="#" class="link-item"><i class="fas fa-chalkboard-teacher"></i> Coordinatrices pédagogiques</a>
+          <a href="#specialites" class="link-item"><i class="fas fa-graduation-cap"></i> Spécialités disponibles</a>
+          <a href="#formulaires" class="link-item"><i class="fas fa-file-pdf"></i> Modèles de formulaires</a>
+          <a href="#reglementation" class="link-item"><i class="fas fa-gavel"></i> Règles et régulations</a>
           <a href="#" class="link-item"><i class="fas fa-bell"></i> Annonces officielles</a>
         </div>
       </div>
     </section>
 
-    <section id="plannings">
-      <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Plannings des EMD — Janvier 2026</h2>
+    <section id="specialites">
+      <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Spécialités</h2>
       <div class="grid">
         <div class="card">
           <div class="card-header">Licence</div>
           <div class="card-body">
             <ul>
-              <li><a href="#L2" style="color:var(--primary); font-weight:500;">L2 Sciences de Gestion</a></li>
-              <li><a href="#L3MGT" style="color:var(--primary); font-weight:500;">L3 Management</a></li>
-              <li><a href="#L3ENT" style="color:var(--primary); font-weight:500;">L3 Entrepreneuriat</a></li>
-              <li><a href="#L3MRH" style="color:var(--primary); font-weight:500;">L3 MRH</a></li>
+              <li>L2 Sciences de Gestion</li>
+              <li>L3 Management</li>
+              <li>L3 Entrepreneuriat</li>
+              <li>L3 MRH</li>
             </ul>
             <a href="planning-licence.html" class="btn" style="background:#3b82f6"><i class="fas fa-download"></i> Télécharger (PDF global)</a>
           </div>
@@ -335,49 +334,45 @@
       </div>
     </section>
 
-    <section id="ressources">
-      <h2 class="section-title"><i class="fas fa-book"></i> Ressources pédagogiques</h2>
+    <section id="reglementation">
+      <h2 class="section-title"><i class="fas fa-gavel"></i> Réglementation</h2>
+      <div class="card">
+        <div class="card-header">Règles et procédures</div>
+        <div class="card-body">
+          <p>Consultez les règles relatives aux examens, inscriptions et procédures pédagogiques.</p>
+          <ul>
+            <li>❌ Problème d’emploi du temps ? → Vérifiez les listes affichées au département (Bloc A/B).</li>
+            <li>❌ Conflit d’horaire ? → Contactez votre coordinatrice dans les 48h.</li>
+            <li>❌ Absence justifiée ? → Déposez un justificatif (médical, administratif) au secrétariat pédagogique.</li>
+            <li>🔹 Respect des horaires d'examens et des règles de conduite.</li>
+            <li>🔹 Procédures d'inscription aux spécialités et modules.</li>
+          </ul>
+          <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Voir le règlement complet</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="formulaires">
+      <h2 class="section-title"><i class="fas fa-file-alt"></i> Formulaires</h2>
       <div class="grid">
         <div class="card">
-          <div class="card-header"><i class="fas fa-file-alt"></i> Documents administratifs</div>
+          <div class="card-header"><i class="fas fa-file-pdf"></i> Documents administratifs</div>
           <div class="card-body">
             <ul>
               <li>Fiches d’inscription aux EMD</li>
               <li>Modèles de PV de jury</li>
               <li>Attestations (abandon, réussite, etc.)</li>
             </ul>
+            <a href="#" class="btn"><i class="fas fa-download"></i> Télécharger les formulaires</a>
           </div>
         </div>
         <div class="card">
-          <div class="card-header"><i class="fas fa-laptop"></i> E-Management</div>
+          <div class="card-header"><i class="fas fa-laptop"></i> Supports pédagogiques</div>
           <div class="card-body">
-            <p>Cours, supports, et projets liés au module <strong>E-Management</strong> (L3, M1).</p>
+            <p>Cours, supports, et projets liés aux modules pédagogiques.</p>
             <p>➡️ Plateforme Moodle / Google Drive (accès enseignant)</p>
+            <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> Accéder aux ressources</a>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contacts">
-      <h2 class="section-title"><i class="fas fa-users"></i> Contacts pédagogiques</h2>
-      <div class="card">
-        <div class="card-header">Coordination et encadrement</div>
-        <div class="card-body">
-          <p><strong>Responsable du département :</strong> Pr. Idir MAHTOUT<br>
-          📧 <a href="mailto:idir.mahtout@ummto.dz">idir.mahtout@ummto.dz</a></p>
-          <p><strong>Coordinatrices pédagogiques (Licence/Master) :</strong> à compléter — liste affichée au département</p>
-          <p><strong>Service scolarité :</strong> Bloc A, rez-de-chaussée — horaires : 8h30–12h30 / 13h30–16h00</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="aide">
-      <h2 class="section-title"><i class="fas fa-question-circle"></i> Besoin d’aide ?</h2>
-      <div class="card">
-        <div class="card-body">
-          <p>❌ Problème d’emploi du temps ? → Vérifiez les listes affichées au département (Bloc A/B).</p>
-          <p>❌ Conflit d’horaire ? → Contactez votre coordinatrice dans les 48h.</p>
-          <p>❌ Absence justifiée ? → Déposez un justificatif (médical, administratif) au secrétariat pédagogique.</p>
         </div>
       </div>
     </section>
