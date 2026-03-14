@@ -154,6 +154,9 @@
   </table>
 
 <script type="text/javascript">
+// Remplacez par votre repo : https://raw.githubusercontent.com/OWNER/REPO/main/
+var baseRawUrl = 'https://raw.githubusercontent.com/departementsg/gestion/main/'; // Modifié pour votre repo
+
 function showMsg(text){ var d=document.getElementById('feedback'); d.className='msg'; d.innerText=text; setTimeout(function(){ if(d.className==='msg') d.innerText=''; },4000); }
 function showErr(text){ var d=document.getElementById('feedback'); d.className='err'; d.innerText=text; setTimeout(function(){ if(d.className==='err') d.innerText=''; },6000); }
 
@@ -178,6 +181,34 @@ function populateNumberSelect(id, min, max, placeholder){
   try { sel.style.color = "#000"; sel.style.background = "#fff"; } catch(e){}
 }
 
+// Charger Filiere.txt depuis GitHub
+function loadFiliereFromGitHub() {
+  fetch(baseRawUrl + 'Filiere.txt')
+    .then(response => {
+      if (!response.ok) throw new Error('Fichier Filiere.txt non trouvé');
+      return response.text();
+    })
+    .then(text => {
+      var filiereList = [];
+      var lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+      var start = lines.length > 0 && lines[0].toLowerCase().indexOf('domaine') !== -1 ? 1 : 0;
+      for (var i = start; i < lines.length; i++) {
+        var L = lines[i].trim();
+        if (!L) continue;
+        var cols = L.split(';');
+        var fil = cols[1] ? cols[1].trim() : '';
+        var ab = cols[2] ? cols[2].trim() : '';
+        if (fil) filiereList.push({ filiere: fil, abrevi: ab });
+      }
+      localStorage.setItem('filiereData', JSON.stringify(filiereList));
+      loadFiliereListToSelect();
+    })
+    .catch(err => {
+      console.warn('Erreur chargement Filiere.txt:', err);
+      loadFiliereListToSelect(); // Fallback vide
+    });
+}
+
 function loadFiliereListToSelect() {
   var filiereList = JSON.parse(localStorage.getItem('filiereData') || '[]');
   var sel = document.getElementById('filiere');
@@ -200,6 +231,41 @@ function onFiliereChange() {
   var idx = sel.selectedIndex; if (idx < 0) return;
   var a = sel.options[idx].getAttribute('data-abrevi') || "";
   try { document.getElementById('abrevi').value = a; } catch(e) {}
+}
+
+// Charger Specialite.txt depuis GitHub
+function loadSpecialiteFromGitHub() {
+  fetch(baseRawUrl + 'Specialite.txt')
+    .then(response => {
+      if (!response.ok) throw new Error('Fichier Specialite.txt non trouvé');
+      return response.text();
+    })
+    .then(text => {
+      var data = [];
+      var lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+      var hasHeader = lines.length > 0 && lines[0].toLowerCase().indexOf('filiere') !== -1;
+      for (var i = hasHeader ? 1 : 0; i < lines.length; i++) {
+        var L = lines[i].trim();
+        if (!L) continue;
+        var cols = L.split(';');
+        data.push({
+          filiere: cols[0] ? cols[0].trim() : '',
+          niveau: cols[1] ? cols[1].trim() : '',
+          semestre: cols[2] ? cols[2].trim() : '',
+          specialite: cols[3] ? cols[3].trim() : '',
+          abrevi: cols[4] ? cols[4].trim() : '',
+          nbreMat: cols[5] ? cols[5].trim() : '',
+          nbreGpes: cols[6] ? cols[6].trim() : '',
+          arrete: cols[7] ? cols[7].trim() : ''
+        });
+      }
+      localStorage.setItem('specialiteData', JSON.stringify(data));
+      loadSpecialiteData();
+    })
+    .catch(err => {
+      console.warn('Erreur chargement Specialite.txt:', err);
+      loadSpecialiteData(); // Fallback vide
+    });
 }
 
 function addRowToTable(filiere, niveau, semestre, special, abrevi, nbreMat, nbreGpes, arrete, index){
@@ -267,8 +333,9 @@ window.onload = function(){
   populateNumberSelect('nbreMat', 1, 40, '-- Nbre Mat --');
   populateNumberSelect('nbreGpes', 1, 300, '-- Nbre Gpes --');
 
-  loadFiliereListToSelect();
-  loadSpecialiteData();
+  // Charger depuis GitHub
+  loadFiliereFromGitHub();
+  loadSpecialiteFromGitHub();
 
   var selF = document.getElementById('filiere');
   if (selF) {
@@ -360,4 +427,16 @@ window.onload = function(){
     loadSpecialiteData();
     try { document.getElementById('filiere').selectedIndex = 0; } catch(e) {}
     try { document.getElementById('niveau').selectedIndex = 0; } catch(e) {}
-    try {*
+    try { document.getElementById('semestre').selectedIndex = 0; } catch(e) {}
+    try { document.getElementById('special').value = ""; } catch(e) {}
+    try { document.getElementById('abrevi').value = ""; } catch(e) {}
+    try { document.getElementById('nbreMat').selectedIndex = 0; } catch(e) {}
+    try { document.getElementById('nbreGpes').selectedIndex = 0; } catch(e) {}
+    try { document.getElementById('arrete').value = ""; } catch(e) {}
+    showMsg("Ligne supprimée.");
+    setTimeout(centerButtons, 80);
+  };
+};
+</script>
+</body>
+</html>
